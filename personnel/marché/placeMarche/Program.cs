@@ -1,4 +1,6 @@
-﻿namespace placeMarche
+﻿using System.Numerics;
+
+namespace placeMarche
 {
     internal class Program
     {
@@ -85,14 +87,15 @@
             pastequeCount(producteurs);
             string pecheCount(List<Producteur> producteurs)
             {
-                int a = producteurs.Count(p => p.Produit == "Pêches");
-                Console.WriteLine($"Il y a {a} vendeurs de pêches");
+                //int a = producteurs.Count(p => p.Produit == "Pêches");
+                List<Producteur> pecheVendeurs = producteurs.Where(p => p.Produit == "Pêches").ToList();
+                Console.WriteLine($"Il y a {pecheVendeurs.Count} vendeurs de pêches");
                 return"";
             }
 
             string pastequeCount(List<Producteur> products) 
             { 
-                int b = 0;
+               /* int b = 0;
                 string nom = "";
                 int place = 0;
 
@@ -104,8 +107,10 @@
                         nom = producteur.Nom;
                         place = producteur.emplacement;
                     }
-                }
-                Console.WriteLine($"C'est {nom} qui a le plus de pastèques (stand {place}, {b} pièces)");
+                }*/
+                var pastequeVendeurs = producteurs.Where(p => p.Produit == "Pastèques" ).MaxBy(p => p.quantity);
+
+                Console.WriteLine($"C'est {pastequeVendeurs.Nom} qui a le plus de pastèques (stand {pastequeVendeurs.emplacement}, {pastequeVendeurs.quantity} pièces)");
                 return "";
             }
                     
