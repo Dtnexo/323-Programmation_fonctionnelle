@@ -83,6 +83,7 @@ namespace placeMarche
             new Producteur(15, "Crizzi", "Myrtilles", 12, "kg", 3.00),
             new Producteur(15, "Crizzi", "Groseilles", 12, "kg", 3.50)
         };
+            /*
             pecheCount(producteurs);
             pastequeCount(producteurs);
             string pecheCount(List<Producteur> producteurs)
@@ -95,7 +96,7 @@ namespace placeMarche
 
             string pastequeCount(List<Producteur> products) 
             { 
-               /* int b = 0;
+                int b = 0;
                 string nom = "";
                 int place = 0;
 
@@ -107,14 +108,16 @@ namespace placeMarche
                         nom = producteur.Nom;
                         place = producteur.emplacement;
                     }
-                }*/
+                }
                 var pastequeVendeurs = producteurs.Where(p => p.Produit == "Pastèques" ).MaxBy(p => p.quantity);
 
                 Console.WriteLine($"C'est {pastequeVendeurs.Nom} qui a le plus de pastèques (stand {pastequeVendeurs.emplacement}, {pastequeVendeurs.quantity} pièces)");
                 return "";
             }
-                    
-          
+                    */
+            Console.WriteLine("Il y a " + producteurs.Count(p => p.Produit == "Groseilles") + " Groseilles disponible au marché");
+            Console.WriteLine("Le chiffre d'affaire possible total p" + producteurs.Sum(p => p.quantity * p.Price, r => Console.WriteLine(r)));
+
         }
         
         
