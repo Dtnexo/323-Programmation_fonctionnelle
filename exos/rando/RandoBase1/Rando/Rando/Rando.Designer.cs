@@ -37,6 +37,7 @@
             ClientSize = new Size(700, 1000);
             Name = "Form1";
             Text = "Rando";
+            Paint += Rando_Form_Paint;
             ResumeLayout(false);
         }
 
