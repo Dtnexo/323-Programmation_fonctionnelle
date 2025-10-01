@@ -80,9 +80,9 @@ if (ignoreTabs)
 
 // TODO: 06 Créer et remplir une liste de LinesComparison à partir de linesA et linesB
 List<LinesComparison> comparisons = new();
-/*var result = linesA.Zip(linesB, (a, b) => new { A = a, B = b });
+var result = linesA.Zip(linesB, (a, b) => new { A = a, B = b });
 result.ToList().ForEach(p => comparisons.Add(new LinesComparison {ContentA = p.A, ContentB = p.B }));
-*/
+
 // TODO: 07 Sélectionner les lignes qui ont des différences
 var diffLines = new List<LinesComparison>();
 
