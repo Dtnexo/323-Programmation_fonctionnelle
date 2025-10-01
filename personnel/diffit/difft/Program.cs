@@ -93,7 +93,9 @@ comparisons.ForEach(p => {
 diffLines.ForEach(p => Console.WriteLine(p.ContentA+p.ContentB));
 
 // TODO: 08 Afficher le nombre de lignes identiques et différentes entre les 2 fichiers
-
+int ident = comparisons.ToArray().Length - diffLines.Count();
+Console.WriteLine("il y a " + ident + " lignes identiques");
+Console.WriteLine("il y a " + diffLines.Count() + " lignes différents");
 
 // TODO: 09 Définir une fonction qui compte les différences (caractères différents) entre deux textes (sera utilisé pour les 2 lignes de A et B...)
 // Pour info/rappel, la fonction Zip (comme une fermeture éclair) permet d’associer deux listes.
