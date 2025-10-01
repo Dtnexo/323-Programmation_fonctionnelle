@@ -31,7 +31,7 @@ if (!filesAreValid)
 // TODO: 01 Charger le contenu texte du fichier A (indice: File.ReadAllLines...)
 string[] linesA = File.ReadLines("C:\\Users\\pt22ugm\\Documents\\GitHub\\323-Programmation_fonctionnelle\\personnel\\diffit\\v1.txt").ToArray();
 // TODO: 02 Charger le contenu texte du fichier B (indice: File.ReadAllLines...)
-//string[] linesB = File.ReadLines("C:\\Users\\pt22ugm\\Documents\\GitHub\\323-Programmation_fonctionnelle\\personnel\\diffit\\v2.txt").ToArray();
+string[] linesB = File.ReadLines("C:\\Users\\pt22ugm\\Documents\\GitHub\\323-Programmation_fonctionnelle\\personnel\\diffit\\v2.txt").ToArray();
 
 // TODO: 03 Vérifier que les fichier ont le même nombre de lignes
 if (true)
