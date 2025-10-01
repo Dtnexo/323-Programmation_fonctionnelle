@@ -86,12 +86,12 @@ result.ToList().ForEach(p => comparisons.Add(new LinesComparison {ContentA = p.A
 // TODO: 07 Sélectionner les lignes qui ont des différences
 var diffLines = new List<LinesComparison>();
 
-/*comparisons.ForEach(p => {
+comparisons.ForEach(p => {
    if( p.ContentA != p.ContentB  )
     diffLines.Add(new LinesComparison { ContentA = p.ContentA,ContentB = p.ContentB});
 });
 diffLines.ForEach(p => Console.WriteLine(p.ContentA+p.ContentB));
-*/
+
 // TODO: 08 Afficher le nombre de lignes identiques et différentes entre les 2 fichiers
 
 
