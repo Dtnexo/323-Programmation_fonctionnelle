@@ -49,7 +49,7 @@ else
 // Le caractère tabulation s’écrit \t
 Func<string, string> cleanSpaces = text => text.Trim();
 Func<string, string> cleanTabs = text => text.Replace("\t", "");
-Func<string, string> enforceCase = text => text;
+Func<string, string> enforceCase = text => text.ToLower();
 
 /// OPTIONS DE NETTOYAGE
 Console.WriteLine("Choisir les options:");
@@ -77,6 +77,11 @@ if (ignoreTabs)
     linesA = linesA.Select(p => cleanTabs(p)).ToArray();
     linesB = linesB.Select(p => cleanTabs(p)).ToArray();
 }
+if(ignoreCase)
+{
+    linesA = linesA.Select(p => enforceCase(p)).ToArray();
+    linesB = linesB.Select(p => enforceCase(p)).ToArray();
+}
 
 // TODO: 06 Créer et remplir une liste de LinesComparison à partir de linesA et linesB
 List<LinesComparison> comparisons = new();
@@ -103,7 +108,12 @@ Console.WriteLine("il y a " + diffLines.Count() + " lignes différents");
 // Ainsi "12345".Zip("ABCDE", (a, b) => $"{a}{b}").ToList().ForEach(Console.Write);//1A2B3C4D5E
 // ATTENTION: zip ne prend que le nombre d’éléments minimum commun entre 2 listes...
 // Ceci implique une correction: en plus du nombre de différences, il faut ajouter la différence du nombre de caractères entre les deux...
-Func<LinesComparison, int> countVariations = _ => -1;
+Func<LinesComparison, int> countVariations = _ => diffLines.ForEach(p => p.ContentA.Zip(p.ContentB, (a,b) => 
+{
+    int diff;
+    if (a != b)
+        diff += 1;
+}));
 
 // TODO: 10 Afficher pour chaque ligne différente, le nombre de variations
 
