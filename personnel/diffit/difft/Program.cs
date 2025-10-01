@@ -65,7 +65,7 @@ bool ignoreCase = Console.ReadLine() == "o";
 
 // TODO:  05 Appliquer le nettoyage selon la demande utilisateur
 List<string> linesAClean = new List<string> ();
-/*if(ignoreSpaces)
+if(ignoreSpaces)
 {
     linesA = linesA.Select(p => cleanSpaces(p)).ToArray();
     linesB = linesB.Select(p => cleanSpaces(p)).ToArray();
@@ -77,7 +77,7 @@ if (ignoreTabs)
     linesA = linesA.Select(p => cleanTabs(p)).ToArray();
     linesB = linesB.Select(p => cleanTabs(p)).ToArray();
 }
-*/
+
 // TODO: 06 Créer et remplir une liste de LinesComparison à partir de linesA et linesB
 List<LinesComparison> comparisons = new();
 /*var result = linesA.Zip(linesB, (a, b) => new { A = a, B = b });
