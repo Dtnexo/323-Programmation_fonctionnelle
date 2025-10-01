@@ -6,7 +6,7 @@
 
 using System.Diagnostics;
 
-    ///MENU
+ ///MENU
 Console.WriteLine("+--------------------------------+");
 Console.WriteLine("|DIFFIT : A very limited DIFFTOOL|");
 Console.WriteLine("+--------------------------------+");
@@ -35,9 +35,9 @@ string[] linesA = File.ReadLines(pathA).ToArray();
 string[] linesB = File.ReadLines(pathB).ToArray();
 
 // TODO: 03 Vérifier que les fichier ont le même nombre de lignes
-if (linesA.Length == linesB.Length)
+if (linesA.Length != linesB.Length)
 {
-    Console.WriteLine("Erreur: les fichiers n'ont pas le même nombre de ligne");
+    Console.WriteLine("Erreur: les fichiers n'ont pas le même nombre de ligne ");
     Environment.Exit(-2);
 }
 else 
@@ -48,7 +48,7 @@ else
 // Il existe la fonction Replace sur les string...
 // Le caractère tabulation s’écrit \t
 Func<string, string> cleanSpaces = text => text.Trim();
-Func<string, string> cleanTabs = text => text;
+Func<string, string> cleanTabs = text => text.Replace("\t", "");
 Func<string, string> enforceCase = text => text;
 
 /// OPTIONS DE NETTOYAGE
@@ -64,22 +64,36 @@ Console.Write("-Ignorer la casse [o/n]: ");
 bool ignoreCase = Console.ReadLine() == "o";
 
 // TODO:  05 Appliquer le nettoyage selon la demande utilisateur
-if(ignoreSpaces)
+List<string> linesAClean = new List<string> ();
+/*if(ignoreSpaces)
 {
-    linesA.ToList().ForEach(p =>
-    {
-        cleanSpaces(p);
-        Console.WriteLine(p);
-    });
+    linesA = linesA.Select(p => cleanSpaces(p)).ToArray();
+    linesB = linesB.Select(p => cleanSpaces(p)).ToArray();
+
 }
 
+if (ignoreTabs)
+{
+    linesA = linesA.Select(p => cleanTabs(p)).ToArray();
+    linesB = linesB.Select(p => cleanTabs(p)).ToArray();
+}
+*/
 // TODO: 06 Créer et remplir une liste de LinesComparison à partir de linesA et linesB
 List<LinesComparison> comparisons = new();
-
+/*var result = linesA.Zip(linesB, (a, b) => new { A = a, B = b });
+result.ToList().ForEach(p => comparisons.Add(new LinesComparison {ContentA = p.A, ContentB = p.B }));
+*/
 // TODO: 07 Sélectionner les lignes qui ont des différences
-//var diffLines = new Liste<LinesComparison>();
+var diffLines = new List<LinesComparison>();
 
+/*comparisons.ForEach(p => {
+   if( p.ContentA != p.ContentB  )
+    diffLines.Add(new LinesComparison { ContentA = p.ContentA,ContentB = p.ContentB});
+});
+diffLines.ForEach(p => Console.WriteLine(p.ContentA+p.ContentB));
+*/
 // TODO: 08 Afficher le nombre de lignes identiques et différentes entre les 2 fichiers
+
 
 // TODO: 09 Définir une fonction qui compte les différences (caractères différents) entre deux textes (sera utilisé pour les 2 lignes de A et B...)
 // Pour info/rappel, la fonction Zip (comme une fermeture éclair) permet d’associer deux listes.
